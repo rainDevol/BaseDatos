@@ -95,7 +95,6 @@ public class admiDAO {
         return val;
     }
     public static void main(String[] args) {
-        admiDAO ad = new admiDAO();
-        ad.eliminarAdmi(1);
+
     }
 }
