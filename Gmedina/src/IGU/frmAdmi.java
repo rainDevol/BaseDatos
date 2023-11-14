@@ -162,19 +162,19 @@ public class frmAdmi extends javax.swing.JFrame {
             try {
                 int i = 0;
                 cn = conexion.Conexion.conexionBD();
-                pt = cn.prepareStatement("select * from eadmision where nombre = ? and apellido=?");
+                pt = cn.prepareStatement("{call validar_admin(?,?)}");
                 pt.setString(1, user);
                 pt.setString(2, pass);
 
                 ResultSet rs = pt.executeQuery();
 
                 if (rs.next()) {
-                    JOptionPane.showMessageDialog(null, "Bienvenido " + user);
+                    JOptionPane.showMessageDialog(null, "SESION INICIADA CORRECTAMENTE\n"+"Bienvenid@ " + user);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "No valido");
+                JOptionPane.showMessageDialog(null, "ERROR AL INICIAR SESIÓN");
             }
 
             
